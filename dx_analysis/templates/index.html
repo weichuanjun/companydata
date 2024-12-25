@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DX分析システム</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>DX分析システム</h1>
+        
+        <div class="actions">
+            <button id="convertBtn" class="btn">PDFファイルを変換</button>
+            <button id="analyzeBtn" class="btn">分析開始</button>
+        </div>
+
+        <div id="status" class="status"></div>
+
+        <div id="results" class="results">
+            <div class="tabs" id="companyTabs"></div>
+            <div class="tab-content" id="analysisContent"></div>
+        </div>
+    </div>
+
+    <template id="tabTemplate">
+        <div class="tab" data-company="">
+            <span class="company-name"></span>
+            <span class="score"></span>
+        </div>
+    </template>
+
+    <template id="contentTemplate">
+        <div class="analysis-section" data-company="">
+            <h2 class="company-title"></h2>
+            
+            <div class="score-summary">
+                <div class="total-score">
+                    <h3>総合評価</h3>
+                    <div class="score"></div>
+                </div>
+                <div class="category-scores">
+                    <div class="score-item">
+                        <span class="label">DX現状</span>
+                        <span class="value"></span>
+                    </div>
+                    <div class="score-item">
+                        <span class="label">プロセスマイニング</span>
+                        <span class="value"></span>
+                    </div>
+                    <div class="score-item">
+                        <span class="label">営業力</span>
+                        <span class="value"></span>
+                    </div>
+                    <div class="score-item">
+                        <span class="label">クラウド</span>
+                        <span class="value"></span>
+                    </div>
+                    <div class="score-item">
+                        <span class="label">自動化</span>
+                        <span class="value"></span>
+                    </div>
+                    <div class="score-item">
+                        <span class="label">基幹システム</span>
+                        <span class="value"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-details">
+                <section>
+                    <h3>DXの現状と課題</h3>
+                    <p class="dx-status"></p>
+                </section>
+                <section>
+                    <h3>プロセスマイニングの適用可能性</h3>
+                    <p class="process-mining"></p>
+                </section>
+                <section>
+                    <h3>営業力強化の必要性</h3>
+                    <p class="sales-enhancement"></p>
+                </section>
+                <section>
+                    <h3>クラウド活用の状況</h3>
+                    <p class="cloud-usage"></p>
+                </section>
+                <section>
+                    <h3>自動化の可能性</h3>
+                    <p class="automation"></p>
+                </section>
+                <section>
+                    <h3>基幹システムの状況</h3>
+                    <p class="core-system"></p>
+                </section>
+                <section>
+                    <h3>財務指標の分析</h3>
+                    <p class="financial-indicators"></p>
+                </section>
+                <section>
+                    <h3>ビジネス機会の評価</h3>
+                    <p class="business-opportunities"></p>
+                </section>
+                <section>
+                    <h3>リスク評価</h3>
+                    <p class="risks"></p>
+                </section>
+                <section>
+                    <h3>提案の優先順位付け</h3>
+                    <p class="priorities"></p>
+                </section>
+                <section>
+                    <h3>最終評価</h3>
+                    <p class="final-evaluation"></p>
+                </section>
+            </div>
+        </div>
+    </template>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 
